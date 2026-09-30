@@ -6,7 +6,7 @@ int main()
     Cin >> N;
     Int a[N];
     Int sum = 0 ;
-For ( int i =0 ; i<=N ; i++ )  {
+For ( int i =0 ; i<N ; i++ )  {
     cin >>  a[i] ;
     sum += a[i];
 } 
