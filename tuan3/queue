@@ -33,6 +33,7 @@ struct Queue {
             rear = p;
         }
     }
+   // độ phức tạp O(1)
 
     void xoaphantu() {
         if (front == nullptr) {
@@ -49,7 +50,7 @@ struct Queue {
 
         delete p;
     }
-
+    // độ phức tạp O(1)
   
     int xemphantudau() {
         if (front == nullptr) {
@@ -59,12 +60,12 @@ struct Queue {
 
         return front->data;
     }
-
+// độ phức tạp O(1)
 
     bool isEmpty() {
         return front == nullptr;
     }
-
+// độ phức tạp O(1)
     int size() {
         int count = 0;
         Node* p = front;
@@ -77,7 +78,7 @@ struct Queue {
         return count;
     }
 
-
+// độ phức tạp O(n)
     void display() {
         if (isEmpty()) {
             cout << "Queue rong!\n";
@@ -94,7 +95,7 @@ struct Queue {
 
         cout << "nullptr\n";
     }
-
+// độ phức tạp O(n)
     // Giai phong bo nho
     ~Queue() {
         while (front != nullptr) {
@@ -105,6 +106,7 @@ struct Queue {
 
         rear = nullptr;
     }
+    // độ phức tạp O(n)
 };
 
 
