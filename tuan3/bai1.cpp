@@ -24,7 +24,7 @@ struct Stack {
         p->next = top;
         top = p;
     }
-
+ // độ phức tạp O(1)
     
     void pop() {
         if (top == nullptr) {
@@ -36,7 +36,7 @@ struct Stack {
         top = top->next;
         delete p;
     }
-
+     // độ phức tạp O(1)
     
     int peek() {
         if (top == nullptr) {
@@ -46,12 +46,12 @@ struct Stack {
 
         return top->data;
     }
-
+    // độ phức tạp O(1)
     
     bool isEmpty() {
         return top == nullptr;
     }
-
+    // độ phức tạp O(1)
     
     int size() {
         int count = 0;
@@ -64,7 +64,7 @@ struct Stack {
 
         return count;
     }
-
+   // độ phức tạp O(n)
     
     void display() {
         if (isEmpty()) {
@@ -82,7 +82,7 @@ struct Stack {
 
         cout << "nullptr\n";
     }
-
+   // độ phức tạp O(n)
     
     ~Stack() {
         while (top != nullptr) {
