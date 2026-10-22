@@ -1,0 +1,130 @@
+
+     
+#include <iostream>
+using namespace std;
+
+struct Node {
+    int data;
+    Node* next;
+
+    Node(int x) {
+        data = x;
+        next = nullptr;
+    }
+};
+
+struct Queue {
+    Node* front;
+    Node* rear;
+
+    Queue() {
+        front = nullptr;
+        rear = nullptr;
+    }
+
+
+    void themphantu(int x) {
+        Node* p = new Node(x);
+
+        if (rear == nullptr) {
+            front = rear = p;
+        } else {
+            rear->next = p;
+            rear = p;
+        }
+    }
+
+    void xoaphantu() {
+        if (front == nullptr) {
+            cout << "Queue rong, khong the dequeue!\n";
+            return;
+        }
+
+        Node* p = front;
+        front = front->next;
+
+        if (front == nullptr) {
+            rear = nullptr;
+        }
+
+        delete p;
+    }
+
+  
+    int xemphantudau() {
+        if (front == nullptr) {
+            cout << "Queue rong!\n";
+            return -1;
+        }
+
+        return front->data;
+    }
+
+
+    bool isEmpty() {
+        return front == nullptr;
+    }
+
+    int size() {
+        int count = 0;
+        Node* p = front;
+
+        while (p != nullptr) {
+            count++;
+            p = p->next;
+        }
+
+        return count;
+    }
+
+
+    void display() {
+        if (isEmpty()) {
+            cout << "Queue rong!\n";
+            return;
+        }
+
+        Node* p = front;
+        cout << "Front -> ";
+
+        while (p != nullptr) {
+            cout << p->data << " -> ";
+            p = p->next;
+        }
+
+        cout << "nullptr\n";
+    }
+
+    // Giai phong bo nho
+    ~Queue() {
+        while (front != nullptr) {
+            Node* p = front;
+            front = front->next;
+            delete p;
+        }
+
+        rear = nullptr;
+    }
+};
+
+
+int main() {
+    Queue q;
+
+    q.themphantu(10);
+    q.themphantu(20);
+    q.themphantu(30);
+
+    q.display();
+
+    cout << "Front: " << q.xemphantudau() << '\n';
+    cout << "Size: " << q.size() << '\n';
+
+    q.xoaphantu();
+    q.display();
+
+    cout << "Queue rong? "
+         << (q.isEmpty() ? "Co" : "Khong") << '\n';
+
+    return 0;
+}
